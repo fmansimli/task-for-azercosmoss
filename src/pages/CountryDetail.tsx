@@ -6,15 +6,19 @@ const CountryDetail = () => {
   const { data, isLoading, error } = useSWR(`/name/${name}`);
 
   if (isLoading) {
-    <div className="flex h-screen container w-full justify-center items-center">
-      <div className="text-3xl">Loading...</div>
-    </div>;
+    return (
+      <div className="flex h-screen container w-full justify-center items-center">
+        <div className="text-3xl">Loading...</div>
+      </div>
+    );
   }
 
   if (error) {
-    <div className="flex container h-screen w-full justify-center items-center">
-      <div className="text-3xl">Error while fetching the county list.</div>
-    </div>;
+    return (
+      <div className="flex container h-screen w-full justify-center items-center">
+        <div className="text-3xl">Error while fetching the county list.</div>
+      </div>
+    );
   }
 
   return (
